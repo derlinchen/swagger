@@ -1,6 +1,7 @@
 1. run SwaggerApplication
 2. 浏览器访问：http://localhost:8080/swagger-ui.html
 3. 注解说明
+
 		@Api：修饰整个类，描述Controller的作用
 		@ApiOperation：描述一个类的一个方法，或者说一个接口
 		@ApiParam：单个参数描述
