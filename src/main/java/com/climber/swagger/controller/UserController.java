@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.climber.swagger.bean.User;
 
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 
+@Api(tags = "用户操作")
 @RestController
 @RequestMapping(value="/users")
 public class UserController {
