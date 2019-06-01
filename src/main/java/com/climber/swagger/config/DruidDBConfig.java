@@ -70,6 +70,8 @@ public class DruidDBConfig {
         private int maxPoolPreparedStatementPerConnectionSize;
         private String filters;
         private String connectionProperties;
+        private boolean removeAbandoned;
+        private int removeAbandonedTimeout;
 
         @Bean     //声明其为Bean实例
         @Primary  //在同样的DataSource中，首先使用被标注的DataSource
@@ -91,6 +93,8 @@ public class DruidDBConfig {
             datasource.setTestWhileIdle(testWhileIdle);
             datasource.setTestOnBorrow(testOnBorrow);
             datasource.setTestOnReturn(testOnReturn);
+            datasource.setRemoveAbandoned(removeAbandoned);
+            datasource.setRemoveAbandonedTimeout(removeAbandonedTimeout);
             datasource.setPoolPreparedStatements(poolPreparedStatements);
             datasource.setMaxPoolPreparedStatementPerConnectionSize(maxPoolPreparedStatementPerConnectionSize);
             try {
@@ -245,6 +249,23 @@ public class DruidDBConfig {
         public void setConnectionProperties(String connectionProperties) {
             this.connectionProperties = connectionProperties;
         }
+
+		public boolean isRemoveAbandoned() {
+			return removeAbandoned;
+		}
+
+		public void setRemoveAbandoned(boolean removeAbandoned) {
+			this.removeAbandoned = removeAbandoned;
+		}
+
+		public int getRemoveAbandonedTimeout() {
+			return removeAbandonedTimeout;
+		}
+
+		public void setRemoveAbandonedTimeout(int removeAbandonedTimeout) {
+			this.removeAbandonedTimeout = removeAbandonedTimeout;
+		}
+        
     }
 
 }

@@ -2,6 +2,8 @@ package com.climber.swagger.controller;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +20,8 @@ import io.swagger.annotations.ApiOperation;
 @RequestMapping(value="/bus")
 public class BusController {
 	
+	private static final Logger LOGGER = LoggerFactory.getLogger(BusController.class);
+
 	@Autowired
 	private BusService busservice;
  
@@ -26,6 +30,7 @@ public class BusController {
     public List<PmtXtype> getUserList() {
     	PmtXtype item = new PmtXtype();
     	List<PmtXtype> rtv = busservice.getXtype(item);
+    	LOGGER.info("hello");
         return rtv;
     }
 
